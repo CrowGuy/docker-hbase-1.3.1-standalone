@@ -1,0 +1,1 @@
+# docker-hbase-1.3.1-standalone

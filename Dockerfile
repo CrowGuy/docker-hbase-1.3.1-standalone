@@ -10,7 +10,6 @@ RUN gunzip -c hbase-1.3.1-bin.tar.gz | tar xvf -
 
 # Copy configuration files
 ADD ./hbase-site.xml /hbase-1.3.1/conf/hbase-site.xml
-ADD ./hbase-env.sh /hbase-1.3.1/conf/hbase-env.sh
 
 # Folder for data
 RUN mkdir -p data/hbase

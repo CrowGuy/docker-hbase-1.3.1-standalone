@@ -1,29 +1,34 @@
-# docker-hbase-1.3.1-standalone
+# docker-hbase-1.3.2-standalone
 
-## Load image
+## Pull image
 ```
-docker load < openjdk-8.tar
+sudo docker pull openjdk:8
 
 # check the available images
-docker images
+sudo docker images
 ```
 
 ## Build
 ```
-docker build . -f ./Dockerfile
-```
-
-## Tag image name by IMAGE ID
-```
-docker tag ***IMAGE ID*** esl/hbase:version1.0
+sudo docker build -t hbase-1.3.2 . 
 ```
 
 ## Usage
 ```
-docker run -it -p 8080:8080 -p 9090:9090 esl/hbase:version1.0 
+sudo docker run -d -it -p 8080:8080 -p 9090:9090 --name crow-Hbase hbase-1.3.2:latest
 ```
 
-## Open Thrift service for Hbase
+## Access container with terimal
+```
+sudo docker exec -it crow-Hbase bash
+```
+
+### Set the config for `conf/hbase-env.sh`
+```
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+```
+
+### Open Thrift service for Hbase
 ```
 ./bin/start-hbase.sh
 ./bin/hbase-daemon.sh start thrift

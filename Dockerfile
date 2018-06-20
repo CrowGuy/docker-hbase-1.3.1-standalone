@@ -18,3 +18,7 @@ RUN mkdir -p data/zookeeper
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 ENV PATH $PATH:/hbase-${HBASE_VERSION}/bin
+
+# Change terminal line settings.
+RUN stty rows 24
+RUN stty columns 80

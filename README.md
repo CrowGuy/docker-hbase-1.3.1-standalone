@@ -28,6 +28,12 @@ sudo docker exec -it crow-Hbase bash
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 
+### Sett the terminal line space
+```
+stty rows 24
+stty columns 80
+```
+
 ### Open Thrift service for Hbase
 ```
 ./bin/start-hbase.sh

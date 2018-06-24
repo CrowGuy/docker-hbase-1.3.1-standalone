@@ -6,7 +6,7 @@ RUN apt-get update
 RUN apt-get -y install vim
 
 # Copy and install the Hbase application from local file
-ADD http://ftp.mirror.tw/pub/apache/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz /
+ADD http://archive.apache.org/dist/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz /
 RUN gunzip -c hbase-${HBASE_VERSION}-bin.tar.gz | tar xvf -
 
 # Copy configuration files
@@ -18,7 +18,3 @@ RUN mkdir -p data/zookeeper
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 ENV PATH $PATH:/hbase-${HBASE_VERSION}/bin
-
-# Change terminal line settings.
-RUN stty rows 24
-RUN stty columns 80
